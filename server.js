@@ -6,7 +6,7 @@ const useRouter = require('./routes/user');
 //PORTを指定する
 const PORT = 3000;
 //静的な画面を作成する publicフォルダの中にHTMLファイルを作成する
-app.use(express.static('public'));
+//app.use(express.static('public'));
 //テンプレートエンジンを使うことができる"ejs"
 app.set('view engine', 'ejs');
 
@@ -14,7 +14,8 @@ app.set('view engine', 'ejs');
 app.get('/', (req, res) => {
   //console.log('hello express');
   //res.send('<h1>こんにちは</h1>');
-  res.status(500).json({ msg: 'エラーです' });
+  //res.status(500).json({ msg: 'エラーです' });
+  res.render('index', { text: 'NodejsとExpress' });
 });
 //ルーティング
 app.use('/user', useRouter);
