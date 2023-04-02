@@ -10,5 +10,10 @@ router.get('/', (req, res) => {
 router.get('/info', (req, res) => {
   res.send('ユーザー情報です');
 });
+//ランダムの文字列をエンドポイントに設定する
+router.get('/:id', (req, res) => {
+  res.send(`${req.params.id}のユーザー情報を取得しました`);
+});
+
 //ルーターの情報をserver.jsにインポートする
 module.exports = router;
