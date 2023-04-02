@@ -5,6 +5,11 @@ const app = express();
 const useRouter = require('./routes/user');
 //PORTを指定する
 const PORT = 3000;
+//静的な画面を作成する publicフォルダの中にHTMLファイルを作成する
+app.use(express.static('public'));
+//テンプレートエンジンを使うことができる"ejs"
+app.set('view engine', 'ejs');
+
 //getメソッド　ルートディレクトリを指定してページを表示する
 app.get('/', (req, res) => {
   //console.log('hello express');
