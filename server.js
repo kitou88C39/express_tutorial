@@ -11,6 +11,8 @@ app.get('/', (req, res) => {
   //res.send('<h1>こんにちは</h1>');
   res.status(500).json({ msg: 'エラーです' });
 });
+//ルーティング
+app.use('/user', useRouter);
 
 //expressを使い、ローカルサーバーを立ち上げる
 app.listen(PORT, () => console.log('サーバーが起動しました'));
