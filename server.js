@@ -5,6 +5,8 @@ const app = express();
 const useRouter = require('./routes/user');
 //PORTを指定する
 const PORT = 3000;
+//ミドルウェアを宣言する
+app.use(mylogger);
 //静的な画面を作成する publicフォルダの中にHTMLファイルを作成する
 //app.use(express.static('public'));
 //テンプレートエンジンを使うことができる"ejs"
@@ -19,6 +21,12 @@ app.get('/', (req, res) => {
 });
 //ルーティング
 app.use('/user', useRouter);
+
+//ミドルウエア
+function mylogger(req, res, next) {
+  console.log(req.originalURL);
+  next();
+}
 
 //expressを使い、ローカルサーバーを立ち上げる
 app.listen(PORT, () => console.log('サーバーが起動しました'));
